@@ -1,0 +1,12 @@
+ttttt:
+  ddddd: prod
+logging:
+  file: D:/logs/prod.log
+  pattern:
+    console:  "%d %-5level [%thread] %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+#    org.springframework.web: DEBUG
+#    org.springframework.jdbc: DEBUG
+    org.springframework.transaction: TRACE
+    com.data.datachange: DEBUG

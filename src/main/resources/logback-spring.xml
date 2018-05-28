@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 输出日志的格式 -->
+    <!--<property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) %-4relative [%thread] %-5level %c.%M[%L] - []%msg%n"/>-->
+    <property name="PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger %c.%M[%L] - %msg%n"/>
+    <!-- 生产环境日志文件路径 -->
+    <property name="PROD_LOG_PATH" value="D:/logs/prod"/>
+    <!-- 开发环境日志文件路径 -->
+    <property name="DEV_LOG_PATH" value="D:/logs/dev"/>
+
+    <springProfile name="dev">
+        <!-- 控制台输出 -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+
+        <!-- 生成文件 -->
+        <appender name="devFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!-- 生成策略 -->
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>
+                    ${DEV_LOG_PATH}/data-dev.%d{yyyy-MM-dd}.log
+                </fileNamePattern>
+            </rollingPolicy>
+            <!-- 输出的格式 -->
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+
+        <logger name="org.springframework.jdbc" level="debug"/>
+        <logger name="org.springframework.transaction" level="TRACE"/>
+        <logger name="com.data.datachange" level="debug"/>
+        <logger name="feign" level="debug"/>
+        <logger name="org.apache.http" level="debug"/>
+        <logger name="com.netflix.hystrix" level="debug"/>
+        <logger name="org.springframework.security" level="debug"/>
+
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="devFileAppender"/>
+        </root>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <!-- 控制台输出 -->
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+
+        <!-- 生成文件 -->
+        <appender name="prodFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!-- 生成策略 -->
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${PROD_LOG_PATH}/prod/data-prod%d{yyyy-MM-dd}.log</fileNamePattern>
+            </rollingPolicy>
+            <!-- 输出的格式 -->
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+
+        <logger name="org.springframework.jdbc" level="debug"/>
+        <logger name="org.springframework.transaction" level="TRACE"/>
+        <logger name="com.data.datachange" level="debug"/>
+        <logger name="feign" level="debug"/>
+        <logger name="org.apache.http" level="debug"/>
+        <logger name="com.netflix.hystrix" level="debug"/>
+        <logger name="org.springframework.security" level="debug"/>
+
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="prodFileAppender"/>
+        </root>
+    </springProfile>
+</configuration>
