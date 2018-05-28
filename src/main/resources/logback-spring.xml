@@ -57,7 +57,7 @@
         <appender name="prodFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
             <!-- 生成策略 -->
             <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <fileNamePattern>${PROD_LOG_PATH}/prod/data-prod%d{yyyy-MM-dd}.log</fileNamePattern>
+                <fileNamePattern>${PROD_LOG_PATH}/data-prod%d{yyyy-MM-dd}.log</fileNamePattern>
             </rollingPolicy>
             <!-- 输出的格式 -->
             <layout class="ch.qos.logback.classic.PatternLayout">
