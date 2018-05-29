@@ -1,5 +1,6 @@
 package com.data.datachange.module.system.web;
 
+import com.data.datachange.module.system.model.Func;
 import com.data.datachange.module.system.service.EmpService;
 import com.data.datachange.module.system.service.FuncService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,6 @@ public class FuncController {
     @Autowired
     private FuncService funcService;
 
-    @Autowired
-    private EmpService empService;
-
     /**
      * 操作数据源为sys
      */
@@ -29,10 +27,22 @@ public class FuncController {
     }
 
     /**
-     * 操作数据源为custom
+     * 查询 Func
+     * @param id 参数
+     * @return Func
      */
-    @RequestMapping("/insertEmp")
-    public void insertEmp(){
-        empService.insertEmp();
+    @RequestMapping("/queryFuncById")
+    public Func queryFuncById(Integer id){
+        return funcService.queryFuncById(id);
+    }
+
+    /**
+     * 删除 Func
+     * @param id 参数
+     * @return Func
+     */
+    @RequestMapping("/deleteFuncById")
+    public void deleteFuncById(Integer id){
+        funcService.deleteFuncById(id);
     }
 }
