@@ -22,4 +22,6 @@ logging:
 #    org.springframework.web: DEBUG
 #    org.springframework.jdbc: DEBUG
     org.springframework.transaction: TRACE
+
+
     com.data.datachange: DEBUG
