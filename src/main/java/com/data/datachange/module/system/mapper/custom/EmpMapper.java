@@ -1,14 +1,14 @@
-package com.data.datachange.module.mapper;
+package com.data.datachange.module.system.mapper.custom;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
 /**
  * @author lz
- * 2018/5/28 13:08
+ * 2018/5/29 14:42
  */
 @Mapper
 @Component
-public interface FuncMapper {
-    void insertFunc();
+public interface EmpMapper {
+    void insertEmp();
 }

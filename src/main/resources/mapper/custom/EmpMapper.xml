@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.data.datachange.module.system.mapper.custom.EmpMapper">
+    <insert id="insertEmp">
+        INSERT INTO EMP VALUES(NULL, '121', '121', '121', '121', '2011-09-01', 3, 1, 3454, '121', '121', '121', now(), now(), now(), now(), 1)
+    </insert>
+</mapper>

@@ -1,8 +1,8 @@
-package com.data.datachange.module.web;
+package com.data.datachange.module.system.web;
 
-import com.data.datachange.module.service.FuncService;
+import com.data.datachange.module.system.service.EmpService;
+import com.data.datachange.module.system.service.FuncService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +17,22 @@ public class FuncController {
     @Autowired
     private FuncService funcService;
 
+    @Autowired
+    private EmpService empService;
+
+    /**
+     * 操作数据源为sys
+     */
     @RequestMapping("/insertFunc")
     public void insertFunc(){
         funcService.insertFunc();
+    }
+
+    /**
+     * 操作数据源为custom
+     */
+    @RequestMapping("/insertEmp")
+    public void insertEmp(){
+        empService.insertEmp();
     }
 }

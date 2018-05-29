@@ -1,4 +1,4 @@
-package com.data.datachange.module.model;
+package com.data.datachange.module.system.model;
 
 /**
  * @author lz

@@ -1,6 +1,6 @@
-package com.data.datachange.module.service;
+package com.data.datachange.module.system.service;
 
-import com.data.datachange.module.mapper.FuncMapper;
+import com.data.datachange.module.system.mapper.sys.FuncMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
