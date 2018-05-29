@@ -9,3 +9,15 @@ spring:
 #mybatis:
 #  mapper-locations: classpath:mapper/*Mapper.xml
 #  type-aliases-package: com.data.datachange.*.mapper
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    password: 11223344
+    timeout: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+    obj:
+      timeout: 36000

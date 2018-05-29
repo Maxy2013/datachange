@@ -4,4 +4,23 @@
     <insert id="insertFunc">
         INSERT INTO FUNC VALUES (NULL, '1', '1', '3', 'aggregate')
     </insert>
+
+    <!-- Func表字段的映射 -->
+    <resultMap id="funcBaseMap" type="com.data.datachange.module.system.model.Func">
+        <result property="id" column="ID" jdbcType="DECIMAL"/>
+        <result property="name" column="NAME" jdbcType="VARCHAR"/>
+        <result property="ret" column="RET" jdbcType="VARCHAR"/>
+        <result property="dl" column="DL" jdbcType="VARCHAR"/>
+        <result property="type" column="TYPE" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 根据ID查询Func信息 -->
+    <select id="queryFuncById" parameterType="java.lang.Integer" resultMap="funcBaseMap">
+        SELECT ID, NAME, RET, DL, TYPE FROM FUNC WHERE ID = #{id}
+    </select>
+
+    <!-- 根据ID删除Func信息 -->
+    <delete id="deleteFuncById" parameterType="java.lang.Integer">
+        DELETE FROM FUNC WHERE ID = #{id}
+    </delete>
 </mapper>

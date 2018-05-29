@@ -1,4 +1,6 @@
 spring:
+  jpa:
+    show-sql: true
   sys:
     datasource:
       url: jdbc:mysql://localhost:3306/mysql
