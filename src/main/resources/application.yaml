@@ -1,14 +1,6 @@
 spring:
   profiles:
     active: dev
-#  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/mysql
-#    username: root
-#    password: root
-#mybatis:
-#  mapper-locations: classpath:mapper/*Mapper.xml
-#  type-aliases-package: com.data.datachange.*.mapper
   redis:
     database: 1
     host: localhost
@@ -19,8 +11,6 @@ spring:
       pool:
         max-active: 8
         max-idle: 8
-    obj:
-      timeout: 36000
   # 集成 ActiveMQ
   activemq:
     broker-url: tcp://localhost:61616
