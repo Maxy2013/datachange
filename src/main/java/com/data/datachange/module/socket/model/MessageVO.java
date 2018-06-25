@@ -5,11 +5,20 @@ import lombok.Data;
 @Data
 public class MessageVO {
 
+    /**
+     * 用户数量
+     */
     private Integer userNum;
-
-
-    private Integer type;
-
-
+    /**
+     * 状态
+     */
+    private Integer status;
+    /**
+     * 状态描述
+     */
+    private String statusDesc;
+    /**
+     * 消息
+     */
     private String message;
 }

@@ -27,7 +27,8 @@ public class WebSocket {
         this.session = session;
         webSockets.add(this);
 
-        messageVO.setType(1);
+        messageVO.setStatus(1);
+        messageVO.setStatusDesc("连接");
         messageVO.setUserNum(webSockets.size());
         messageVO.setMessage("有新的连接");
 
@@ -47,9 +48,10 @@ public class WebSocket {
     public void onClose(){
         webSockets.remove(this);
 
-        messageVO.setType(2);
+        messageVO.setStatus(2);
+        messageVO.setStatusDesc("断开");
         messageVO.setUserNum(webSockets.size());
-        messageVO.setMessage("由用户离开");
+        messageVO.setMessage("有用户离开");
 
         ObjectMapper mapper = new ObjectMapper();
 
@@ -68,7 +70,8 @@ public class WebSocket {
 
     @OnMessage
     public void onMessage(String message){
-        messageVO.setType(3);
+        messageVO.setStatus(3);
+        messageVO.setStatusDesc("发送消息");
         messageVO.setUserNum(webSockets.size());
         messageVO.setMessage(message);
 
