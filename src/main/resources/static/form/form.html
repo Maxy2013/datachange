@@ -3,12 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>表单提交</title>
+    <script type="application/javascript" src="../plugin/jquery/jquery-3.1.0.min.js"></script>
+    <script type="application/javascript">
+        function submitData() {
+            $.ajax({
+                url: '/form/submitAjaxUserInfo',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    name: $("#name").val(),
+                    pass: $("#pass").val(),
+                    addr: $("#addr").val()
+                },
+                success: function (data) {
+                    alert("恭喜你提交‘" + data.name + "’成功！");
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
 
     <div>
+        <div style="color: #f00;">Ajax提交</div>
+        <input title="名称" id="name" name="name" value="KanKan"/>
+        <input title="密码" id="pass" name="pass" value="1234546"/>
+        <input title="地址" id="addr" name="addr" value="重庆"/>
+        <input title="提交" type="button" value="提交" onclick="submitData();"/>
+    </div>
+    <br/><br/><br/>
+    <div>
         <div style="color: #f00;">表单提交</div>
-        <form action="/form/submitUserInfo" method="post">
+        <form action="/form/submitFormUserInfo" method="post">
             <input title="名称" name="name" value="KanKan"/>
             <input title="密码" name="pass" value="1234546"/>
             <input title="地址" name="addr" value="重庆"/>
