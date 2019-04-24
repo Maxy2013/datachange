@@ -11,3 +11,8 @@ spring:
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: root
+  scheduled:
+    time:
+      generate: 0 */1 * * * ? #0 */1 * * * ? #生成文件
+      upload: 0 */3 * * * ? #0 */1 * * * ? #上传文件
+      download: 0 */3 * * * ? #0 */1 * * * ? #下载文件
