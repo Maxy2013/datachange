@@ -1,13 +1,13 @@
 spring:
   sys:
     datasource:
-      url: jdbc:mysql://localhost:3306/mysql
+      url: jdbc:mysql://localhost:3306/sys
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: root
   custom:
     datasource:
-      url: jdbc:mysql://localhost:3306/emp
+      url: jdbc:mysql://localhost:3306/mysql
       driver-class-name: com.mysql.jdbc.Driver
       username: root
       password: root
